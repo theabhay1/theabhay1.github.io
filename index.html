@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <span class="gradient-text">&lt;/&gt;</span> Abhay Singh.
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#stats">Achievements</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero container">
+            <div class="hero-content reveal">
+                <h3>Hello, I am a</h3>
+                <h1 class="glitch">Software Engineer</h1>
+                <h2 class="subtitle"><span class="typed-text">Java Developer, DSA Enthusiast</span><span class="cursor">&nbsp;</span></h2>
+                <p>I build robust applications and find elegant solutions to complex algorithmic problems. Passionate about clean code, scalable architecture, and continuous learning.</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary">Let's Talk <i class="fas fa-arrow-right"></i></a>
+                    <a href="./assets/Resume.pdf" download="Abhay_Singh_Resume.pdf" class="btn btn-secondary">Download Resume <i class="fas fa-download"></i></a>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/the-abhay/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/theabhay1" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://leetcode.com/u/the_abhay/" aria-label="LeetCode" target="_blank"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
+            <div class="hero-image reveal-right">
+                <div class="image-wrapper glass-panel">
+                    <img src="./assets/profile.png" alt="Abhay Singh" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="container section">
+            <h2 class="section-title reveal">Coding <span>Achievements</span></h2>
+            <div class="stats-grid">
+                <div class="stat-card glass-panel reveal">
+                    <div class="stat-icon leetcode">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="counter" id="leetcode-counter" data-target="0">0</h3>
+                    <p class="stat-label">LeetCode Problems Solved</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel reveal" style="transition-delay: 0.1s;">
+                    <div class="stat-icon java">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>SQL 50</h3>
+                    <p class="stat-label">LeetCode Badge</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel reveal" style="transition-delay: 0.2s;">
+                    <div class="stat-icon ninjas">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3 class="counter" id="monkeytype-counter" data-target="0">0</h3>
+                    <p class="stat-label">WPM Typing Speed</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="container section">
+            <h2 class="section-title reveal">Education & <span>Skills</span></h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="date">2022 - 2026</span>
+                        <h3>B.Tech in Computer Science</h3>
+                        <h4>Galgotias College of Engineering and Technology, Greater Noida</h4>
+                        <p>Currently pursuing my Bachelor's degree and focusing on Data Structures and Algorithms, Object-Oriented Programming, and full-stack development.</p>
+                        <div class="tech-stack">
+                            <span>Java</span>
+                            <span>C++</span>
+                            <span>DSA</span>
+                            <span>OOP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="date">Technical Skills</span>
+                        <h3>Languages & Frameworks</h3>
+                        <h4>Core Competencies</h4>
+                        <p>My primary tech stack encompasses mobile and backend development alongside strong database fundamentals.</p>
+                        <div class="tech-stack">
+                            <span>Java</span>
+                            <span>SQL</span>
+                            <span>Android Dev</span>
+                            <span>Jetpack Compose</span>
+                            <span>Spring Boot</span>
+                            <span>Kotlin</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container section">
+            <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="date"><a href="https://github.com/theabhay1/Smart-Email-Reply" target="_blank" style="color:var(--accent-primary); text-decoration:none;">View on GitHub <i class="fas fa-external-link-alt"></i></a></span>
+                        <h3>Smart Email Reply</h3>
+                        <h4>Backend System</h4>
+                        <p>Developed a backend system using Spring Boot to integrate Google's Gemini API for AI-powered email responses. Implemented content processing to generate context-aware replies mapping seamlessly to email clients.</p>
+                        <div class="tech-stack">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>Google Gemini API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="date"><a href="https://github.com/theabhay1/Sorting-Visualizer" target="_blank" style="color:var(--accent-primary); text-decoration:none;">View on GitHub <i class="fas fa-external-link-alt"></i></a></span>
+                        <h3>Sorting Visualizer</h3>
+                        <h4>Desktop Application</h4>
+                        <p>Developed an interactive JavaFX application to visualize six major sorting algorithms (Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, Heap Sort) with step-by-step animations and speed adjustment features.</p>
+                        <div class="tech-stack">
+                            <span>Java</span>
+                            <span>JavaFX</span>
+                            <span>Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="date"><a href="https://github.com/theabhay1/file-hub" target="_blank" style="color:var(--accent-primary); text-decoration:none;">View on GitHub <i class="fas fa-external-link-alt"></i></a></span>
+                        <h3>File Manager App</h3>
+                        <h4>Android Application</h4>
+                        <p>Created an Android file management application using MVVM architecture and Jetpack components. Implemented device storage tracking via StatFs API and handled categorization with the MediaStore API.</p>
+                        <div class="tech-stack">
+                            <span>Kotlin</span>
+                            <span>Android</span>
+                            <span>Jetpack Compose</span>
+                            <span>MVVM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container section">
+            <h2 class="section-title reveal">Get In <span>Touch</span></h2>
+            <div class="contact-wrapper glass-panel reveal">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>singhabhay0854@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91-9651749938</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>India</span>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formsubmit.co/singhabhay0854@gmail.com" method="POST">
+                    <!-- Security/Config for FormSubmit -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio!">
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Abhay Singh. Designed with <i class="fas fa-heart" style="color: #ff3366;"></i></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
