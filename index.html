@@ -3,229 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Software Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>Creative Developer Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP for advanced scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scrolling (Gold Standard for Awwwards sites) -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Glowing Vector Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%23ff3300%22>A.</text></svg>">
 </head>
-<body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+<body class="selection:bg-white selection:text-black">
 
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <span class="gradient-text">&lt;/&gt;</span> Abhay Singh.
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#stats">Achievements</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+    <div class="noise"></div>
+    <div id="ambient-glow"></div>
+    <div id="cursor"></div>
 
-    <main>
-        <section id="home" class="hero container">
-            <div class="hero-content reveal">
-                <h3>Hello, I am a</h3>
-                <h1 class="glitch">Software Engineer</h1>
-                <h2 class="subtitle"><span class="typed-text">Java Developer, DSA Enthusiast</span><span class="cursor">&nbsp;</span></h2>
-                <p>I build robust applications and find elegant solutions to complex algorithmic problems. Passionate about clean code, scalable architecture, and continuous learning.</p>
-                <div class="cta-group">
-                    <a href="#contact" class="btn btn-primary">Let's Talk <i class="fas fa-arrow-right"></i></a>
-                    <a href="./assets/Resume.pdf" download="Abhay_Singh_Resume.pdf" class="btn btn-secondary">Download Resume <i class="fas fa-download"></i></a>
-                </div>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/the-abhay/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/theabhay1" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://leetcode.com/u/the_abhay/" aria-label="LeetCode" target="_blank"><i class="fas fa-code"></i></a>
+    <!-- Cinematic Loader -->
+    <div id="preloader">
+        <div class="text-xs font-mono uppercase tracking-[0.3em] mb-4 text-gray-400">Loading Experience</div>
+        <div id="loader-percent" class="loader-text">0%</div>
+    </div>
+
+    <!-- Minimal Sticky Navbar -->
+    <nav class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference">
+        <div id="nav-logo" class="text-xl font-bold tracking-tighter"></div>
+        <div class="flex gap-8 font-mono text-sm uppercase tracking-widest text-gray-400">
+            <a href="#about" class="magnetic hover:text-white transition-colors">About</a>
+            <a href="#work" class="magnetic hover:text-white transition-colors">Work</a>
+            <a href="#stats" class="magnetic hover:text-white transition-colors">Stats</a>
+        </div>
+    </nav>
+
+    <!-- Parallax Hero -->
+    <main class="w-full">
+        <section class="h-[120vh] relative flex flex-col justify-center items-center overflow-hidden">
+            <!-- Endless Dense Background Typography -->
+            <div id="bg-marquee" class="bg-marquee"></div>
+
+            <div id="hero-title" class="huge-text text-center z-10 flex flex-col">
+                <span id="hero-first" class="hero-line block transform translate-y-[20%] opacity-0"></span>
+                <span id="hero-last" class="hero-line block outlined-text transform translate-y-[20%] opacity-0"></span>
+            </div>
+            <div class="absolute bottom-32 right-12 text-right opacity-0 z-10" id="hero-desc">
+                <p id="hero-subtitle" class="font-mono uppercase tracking-widest text-xs mb-2 accent-text"></p>
+                <div class="max-w-[280px] text-gray-400 text-sm leading-relaxed flex flex-col items-end">
+                    <span id="hero-desc-text"></span>
+                    <div class="word-carousel font-bold text-white">
+                        <div id="hero-carousel" class="word-carousel-inner"></div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image reveal-right">
-                <div class="image-wrapper glass-panel">
-                    <img src="./assets/profile.png" alt="Abhay Singh" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+            <!-- Large background abstract geometric form (subtle) -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] rounded-full border border-white/5 opacity-50 z-0"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] rounded-full border border-white/5 opacity-50 z-0 delay-100"></div>
+        </section>
+
+        <!-- Sticky About Section -->
+        <section id="about" class="min-h-screen py-32 px-8 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10 bg-black">
+            <div class="flex justify-center">
+                <div class="w-full max-w-md aspect-[3/4] img-reveal">
+                    <img src="profile.png" alt="Profile Vector" class="w-full h-full object-cover">
                 </div>
+            </div>
+            <div>
+                <h2 id="about-headline" class="text-5xl md:text-7xl font-bold mb-10 tracking-tight leading-none js-split-text"></h2>
+                <p id="about-desc" class="text-xl text-gray-400 font-light mb-8 max-w-xl leading-relaxed"></p>
+                <div id="skills-container" class="flex flex-wrap gap-4 mt-12"></div>
             </div>
         </section>
 
-        <section id="stats" class="container section">
-            <h2 class="section-title reveal">Coding <span>Achievements</span></h2>
-            <div class="stats-grid">
-                <div class="stat-card glass-panel reveal">
-                    <div class="stat-icon leetcode">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="counter" id="leetcode-counter" data-target="0">0</h3>
-                    <p class="stat-label">LeetCode Problems Solved</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="stat-card glass-panel reveal" style="transition-delay: 0.1s;">
-                    <div class="stat-icon java">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>SQL 50</h3>
-                    <p class="stat-label">LeetCode Badge</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div class="stat-card glass-panel reveal" style="transition-delay: 0.2s;">
-                    <div class="stat-icon ninjas">
-                        <i class="fas fa-keyboard"></i>
-                    </div>
-                    <h3 class="counter" id="monkeytype-counter" data-target="0">0</h3>
-                    <p class="stat-label">WPM Typing Speed</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 95%;"></div>
-                    </div>
-                </div>
+        <!-- Horizontal Scroll Work Section -->
+        <section id="work" class="horizontal-scroll-wrapper relative">
+            <div class="absolute top-12 left-12 z-10 text-8xl font-black outlined-text opacity-20 pointer-events-none">SELECTED WORK</div>
+            
+            <div id="project-container" class="horizontal-scroll-container flex">
+                <!-- Data securely injected by app.js based on data.js to maintain flawless GSAP Scroll boundaries -->
             </div>
         </section>
 
-        <section id="experience" class="container section">
-            <h2 class="section-title reveal">Education & <span>Skills</span></h2>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="date">2022 - 2026</span>
-                        <h3>B.Tech in Computer Science</h3>
-                        <h4>Galgotias College of Engineering and Technology, Greater Noida</h4>
-                        <p>Currently pursuing my Bachelor's degree and focusing on Data Structures and Algorithms, Object-Oriented Programming, and full-stack development.</p>
-                        <div class="tech-stack">
-                            <span>Java</span>
-                            <span>C++</span>
-                            <span>DSA</span>
-                            <span>OOP</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="date">Technical Skills</span>
-                        <h3>Languages & Frameworks</h3>
-                        <h4>Core Competencies</h4>
-                        <p>My primary tech stack encompasses mobile and backend development alongside strong database fundamentals.</p>
-                        <div class="tech-stack">
-                            <span>Java</span>
-                            <span>SQL</span>
-                            <span>Android Dev</span>
-                            <span>Jetpack Compose</span>
-                            <span>Spring Boot</span>
-                            <span>Kotlin</span>
-                            <span>MySQL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="container section">
-            <h2 class="section-title reveal">Featured <span>Projects</span></h2>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="date"><a href="https://github.com/theabhay1/Smart-Email-Reply" target="_blank" style="color:var(--accent-primary); text-decoration:none;">View on GitHub <i class="fas fa-external-link-alt"></i></a></span>
-                        <h3>Smart Email Reply</h3>
-                        <h4>Backend System</h4>
-                        <p>Developed a backend system using Spring Boot to integrate Google's Gemini API for AI-powered email responses. Implemented content processing to generate context-aware replies mapping seamlessly to email clients.</p>
-                        <div class="tech-stack">
-                            <span>Java</span>
-                            <span>Spring Boot</span>
-                            <span>Google Gemini API</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="date"><a href="https://github.com/theabhay1/Sorting-Visualizer" target="_blank" style="color:var(--accent-primary); text-decoration:none;">View on GitHub <i class="fas fa-external-link-alt"></i></a></span>
-                        <h3>Sorting Visualizer</h3>
-                        <h4>Desktop Application</h4>
-                        <p>Developed an interactive JavaFX application to visualize six major sorting algorithms (Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, Heap Sort) with step-by-step animations and speed adjustment features.</p>
-                        <div class="tech-stack">
-                            <span>Java</span>
-                            <span>JavaFX</span>
-                            <span>Algorithms</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="date"><a href="https://github.com/theabhay1/file-hub" target="_blank" style="color:var(--accent-primary); text-decoration:none;">View on GitHub <i class="fas fa-external-link-alt"></i></a></span>
-                        <h3>File Manager App</h3>
-                        <h4>Android Application</h4>
-                        <p>Created an Android file management application using MVVM architecture and Jetpack components. Implemented device storage tracking via StatFs API and handled categorization with the MediaStore API.</p>
-                        <div class="tech-stack">
-                            <span>Kotlin</span>
-                            <span>Android</span>
-                            <span>Jetpack Compose</span>
-                            <span>MVVM</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="container section">
-            <h2 class="section-title reveal">Get In <span>Touch</span></h2>
-            <div class="contact-wrapper glass-panel reveal">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>singhabhay0854@gmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+91-9651749938</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>India</span>
-                    </div>
-                </div>
-                <form class="contact-form" action="https://formsubmit.co/singhabhay0854@gmail.com" method="POST">
-                    <!-- Security/Config for FormSubmit -->
-                    <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio!">
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <div class="input-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="input-group">
-                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
-                </form>
+        <!-- Minimal Stats Section -->
+        <section id="stats" class="py-40 px-8 text-center bg-[#070707]">
+            <h2 class="text-sm font-mono tracking-[0.5em] text-gray-500 uppercase mb-20 drop-shadow-lg">Performance Metrics</h2>
+            
+            <div id="stats-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"></div>
+            
+            <div class="mt-40">
+                <a id="contact-email" href="" class="magnetic text-5xl md:text-8xl font-black hover:text-accent transition-colors">START A PROJECT</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Abhay Singh. Designed with <i class="fas fa-heart" style="color: #ff3366;"></i></p>
+    <!-- Footer -->
+    <footer class="py-12 px-8 flex flex-col md:flex-row justify-between items-center border-t border-white/10">
+        <p id="footer-copyright" class="font-mono text-xs text-gray-500"></p>
+        <div class="flex gap-8 mt-6 md:mt-0">
+            <a id="footer-github" href="" target="_blank" class="magnetic text-gray-400 hover:text-white"><i data-lucide="github"></i></a>
+            <a id="footer-linkedin" href="" target="_blank" class="magnetic text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
